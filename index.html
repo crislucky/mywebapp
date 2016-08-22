@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Twitter</title>
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet" type="text/css">
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/massage/massage.js"></script>
+    <script src="views/notice/notice.js"></script>
+    <script src="views/user/user.js"></script>
+    <script src="views/details/follow.js"></script>
+    <script src="views/tour/tour.js"></script>
+</head>
+<body ng-controller="indexCtrl">
+<ion-side-menus>
+    <!--内容-->
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-title>
+                <i class="icon ion-social-twitter"></i>
+            </ion-nav-title>
+            <ion-nav-back-button class="button button-clear ion-ios-arrow-back"></ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+    <!--侧边栏-->
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-calm">
+            <h1 class="title">
+                <i class="icon ion-social-twitter"></i>
+            </h1>
+        </ion-header-bar>
+        <ion-content>
+            <ion-item class="item item-icon-left" ng-if="login.out">
+                <i class="icon ion-person"></i>登录
+            </ion-item>
+            <label class="item item-input" ng-if="login.out" >
+                <span class="input-label">用户名</span>
+                <input type="text" placeholder="Cris" ng-model="userL.userName">
+            </label>
+            <label class="item item-input" ng-if="login.out">
+                <span class="input-label">密码</span>
+                <input type="password" placeholder="123456" ng-model="userL.password">
+            </label>
+            <ion-item ng-if="login.out">
+                <div class="button button-full button-calm" ng-click="userLogin(userL.userName,userL.password)">
+                    登陆
+                </div>
+            </ion-item>
+            <span ng-if="login.nameInvalid" class="padding">
+                用户名错误
+            </span>
+            <span ng-if="login.pwInvalid" class="padding">
+                密码错误
+            </span>
+            <ion-item class="item item-thumbnail-left animate bounceInUp" ng-if="login.in" ui-sref="tabs.user"  menu-close>
+                <img ng-src="{{user.avatar}}"/><span style="line-height:80px;font-size:24px;font-family:arial, '微软雅黑';color:#1b6d85">{{user.userName}}</span>
+            </ion-item>
+            <ion-item class="item item-icon-left animate bounceInUp" ng-if="login.in" ui-sref="tabs.notice" menu-close>
+                <i class="icon ion-android-mail" badge="3"></i>查看通知
+            </ion-item>
+            <ion-item class="item item-icon-left animate bounceInUp" ng-if="login.in" ui-sref="tabs.follow"  menu-close>
+                <i class="icon ion-person-stalker"></i>我的关注
+            </ion-item>
+            <ion-item class="item item-icon-left animate bounceInUp" ng-if="login.in" ui-sref="settings"  menu-close>
+                <i class="icon ion-gear-b"></i>设置
+            </ion-item>
+            <ion-item class="item item-icon-left animate bounceInUp" ng-if="login.in" ng-click="userLoginOut()" ui-sref="tabs.whatsNew">
+                <i class="icon ion-log-out"></i>退出登录
+            </ion-item>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>
+</body>
+</html>
