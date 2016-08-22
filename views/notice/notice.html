@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-nav-title>
+        <h1 class="title">通知</h1>
+        <div class="button button-icon ion-navicon-round"
+             ng-click="data.showReorder=!data.showReorder;data.showDel=false"></div>
+    </ion-nav-title>
+    <ion-content>
+        <ion-list class="card" show-reorder="data.showReorder">
+            <ion-item class="item-avatar item-remove-animate" ng-repeat="user in users" ui-sref="tabs.follow">
+                <img ng-src={{user.avatar}}>
+                <p>{{user.userId}}关注了你</p>
+                <ion-reorder-button class="ion-navicon" on-reorder="reOrder(user,$fromIndex,$toIndex)"></ion-reorder-button>
+                <ion-option-button class="button-calm" ng-click="follow(user)">关注</ion-option-button>
+                <ion-option-button class="button-energized" ng-click="delete(user)">删除</ion-option-button>
+            </ion-item>
+        </ion-list>
+        <div style="text-align: center;font-size: 20px;color: #aaa;">
+            <i class="icon ion-social-twitter"></i>
+        </div>
+    </ion-content>
+</ion-view>

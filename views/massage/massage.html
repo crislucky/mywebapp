@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-nav-title class="item-button-right">
+        <h1 class="title">私信</h1>
+        <i class="button button-icon ion-chatbox-working" ng-click="openModal()"></i>
+    </ion-nav-title>
+    <ion-content>
+        <div style="height: 88px;text-align: center;background-color: #387ef5;line-height: 88px;color: white">
+            <p style="font-size: 16px;">与任何关注你的人私下谈谈。</p>
+        </div>
+        <div style="color: #666;background-color: #eeeeee;height: 50px;line-height: 50px;padding-left: 10px;">
+            <p style="font-size: 14px;">推荐用户</p>
+        </div>
+        <div class="list">
+            <div class="item item-avatar" ng-repeat="user in uesrs"  ng-click="openModal()">
+                <img ng-src="{{user.avatar}}">
+                <p>{{user.userName}}</p>
+                <p>{{user.userId}}</p>
+            </div>
+        </div>
+    </ion-content>
+    <script id="views/modal.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar bar-header bar-positive">
+                <h1 class="title">新私信</h1>
+                <button class="button button-clear button-primary" ng-click="closeModal()">取消</button>
+            </ion-header-bar>
+
+            <ion-content class="padding">
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="icon ion-search"></span>
+                        <input type="text" ng-model="user.userName" placeholder="搜索用户和群组">
+                    </label>
+                    <div class="list">
+                        <div class="item item-avatar" ng-repeat="user in uesrs">
+                            <img ng-src="{{user.avatar}}">
+                            <p>{{user.userName}}</p>
+                            <p>{{user.userId}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+</ion-view>

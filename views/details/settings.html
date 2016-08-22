@@ -1,0 +1,65 @@
+<ion-view>
+    <ion-nav-bar class="bar-calm themeColor">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon ion-navicon-round" menu-toggle="left" side="left"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ui-sref="tabs.home" side="right">
+                <i class="icon ion-android-home"></i>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-title>
+        <h2 class="title">设置</h2>
+    </ion-nav-title>
+    <ion-content>
+        <ul class="list">
+            <li class="item item-toggle">
+                接受新消息通知
+                <label class="toggle toggle-dark">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                通知显示消息信息
+                <label class="toggle toggle-dark">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                声音
+                <label class="toggle toggle-dark">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                振动
+                <label class="toggle toggle-dark">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <div class="range range-assertive">
+            <i class="icon ion-volume-low"></i>
+            <input type="range" name="volume">
+            <i class="icon ion-volume-high"></i>
+        </div>
+        <div class="range range-positive">
+            <i class="icon ion-ios-lightbulb-outline"></i>
+            <input type="range" name="light">
+            <i class="icon ion-ios-lightbulb"></i>
+        </div>
+    </ion-content>
+</ion-view>

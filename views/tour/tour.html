@@ -1,0 +1,12 @@
+<ion-view id="view-tour">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ui-sref="tabs.home" ng-if="isShow">立即开启</a>
+    </ion-nav-buttons>
+    <!--<ion-content>-->
+    <ion-slide-box on-slide-changed="onSlideChanged()" class="has-header">
+        <ion-slide ng-repeat="image in images">
+            <img ng-src="{{image.url}}" style="width: 100%;height: 100%;">
+        </ion-slide>
+    </ion-slide-box>
+    <!--</ion-content>-->
+</ion-view>
